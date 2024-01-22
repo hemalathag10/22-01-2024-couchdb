@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class BlogService {
+export class BookService {
   private baseUrl = 'http://localhost:5984/demo'; // Update with your CouchDB base URL
 
   constructor(private http: HttpClient) {}

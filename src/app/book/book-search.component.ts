@@ -1,6 +1,6 @@
 // book-search.component.ts
 import { Component } from '@angular/core';
-import { BlogService } from '../blog.service';
+import { BookService } from '../book.service';
 
 interface Book {
   _id: string;
@@ -18,10 +18,10 @@ export class BookSearchComponent {
     searchTitle: string = '';
     searchMessage: string = '';
   
-    constructor(private blogService: BlogService) {}
+    constructor(private bookService: BookService) {}
   
     searchBooks() {
-      this.blogService.searchBooksByTitle(this.searchTitle).subscribe(
+      this.bookService.searchBooksByTitle(this.searchTitle).subscribe(
         (response: any) => {
           this.searchedBooks = response.docs;
           console.log(this.searchedBooks)

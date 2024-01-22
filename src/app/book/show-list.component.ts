@@ -1,7 +1,7 @@
 // book-list.component.ts
 
 import { Component, OnInit } from '@angular/core';
-import { BlogService } from '../blog.service';
+import { BookService } from '../book.service';
 import { HttpHeaders } from '@angular/common/http';
 
 interface book {
@@ -21,7 +21,7 @@ export class ShowListComponent implements OnInit {
   editingbookId: string | null = null;
   editedbook: book | null = null; // Track the book being edited
 
-  constructor(private blogService: BlogService) {}
+  constructor(private bookService: BookService) {}
 
   ngOnInit(): void {
     this.loadbooks();
@@ -34,7 +34,7 @@ export class ShowListComponent implements OnInit {
   
   // Function to load books for the current page
   loadbooks() {
-    this.blogService.getAllbooks(this.pageNumber, this.pageSize).subscribe(
+    this.bookService.getAllbooks(this.pageNumber, this.pageSize).subscribe(
       (response: any) => {
         this.books = response.docs;
         // Additional code as needed
@@ -62,7 +62,7 @@ export class ShowListComponent implements OnInit {
 
 
   load_books() {
-    this.blogService.getAll_books().subscribe(
+    this.bookService.getAll_books().subscribe(
       (response: any) => {
         this.books = response.rows.map((row: any) => row.value) as book[];
       },
@@ -116,7 +116,7 @@ export class ShowListComponent implements OnInit {
       const headers = new HttpHeaders({ 'Authorization': 'Basic ' + btoa(credentials) });
 
       // Update the book on the server
-      this.blogService.updatebook(bookId, this.editedbook, headers).subscribe(
+      this.bookService.updatebook(bookId, this.editedbook, headers).subscribe(
         (response) => {
           console.log('book updated successfully:', response);
 
@@ -143,7 +143,7 @@ export class ShowListComponent implements OnInit {
     const credentials = 'admin:admin';
     const headers = new HttpHeaders({ 'Authorization': 'Basic ' + btoa(credentials) });
 
-    this.blogService.deletebook(bookId, rev, headers).subscribe(
+    this.bookService.deletebook(bookId, rev, headers).subscribe(
       (response) => {
         console.log('book deleted successfully:', response);
 

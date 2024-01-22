@@ -2,7 +2,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
-import { BlogService } from '../blog.service'; // Update the path based on your actual folder structure
+import { BlogService } from '../book.service'; // Update the path based on your actual folder structure
 
 @Component({
   selector: 'app-add-book',

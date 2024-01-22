@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ShowListComponent } from './book/show-list.component';
 import { AddBookComponent } from './book/add-book.component';
-import { BlogService } from './blog.service';
+import { BookService } from './book.service';
 import { BookSearchComponent } from './book/book-search.component';
 
 @NgModule({
@@ -22,7 +22,7 @@ import { BookSearchComponent } from './book/book-search.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [BlogService],
+  providers: [BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
